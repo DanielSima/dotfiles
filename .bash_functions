@@ -3,7 +3,7 @@
 #init and add remote for current directory
 function gir() {
 
-    echo git init && git remote add origin $1
+    git init && git remote add origin $1
   
 }
 
