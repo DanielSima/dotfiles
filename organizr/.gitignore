@@ -4,5 +4,5 @@
 /organizr/
 /php/
 /www/*
-!/www/Dashboard/api/config/
-!/www/db/
+!/www/Dashboard/api/config/config.php
+!/www/db/db.db
