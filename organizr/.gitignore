@@ -3,6 +3,6 @@
 /nginx/
 /organizr/
 /php/
-/www/
+/www/*
 !/www/Dashboard/api/config/
 !/www/db/
