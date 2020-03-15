@@ -5,14 +5,14 @@
 /php/
 
 /www/
-!/www/Dashboard/**/
+!/www/Dashboard
 /www/Dashboard/*
-!/www/Dashboard/api/**/
+!/www/Dashboard/api
 /www/Dashboard/api/*
-!/www/Dashboard/api/config/**/
+!/www/Dashboard/api/config
 /www/Dashboard/api/config/*
 !/www/Dashboard/api/config/config.php
 
-!/www/db/**/
+!/www/db
 /ww/db/*
 !/www/db/db.db
