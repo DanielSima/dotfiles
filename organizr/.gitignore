@@ -3,6 +3,6 @@
 !.gitignore
 /www/Dashboard/api/vendor
 /www/Dashboard/less
-/www/Dashboard/Plugins
+/www/Dashboard/plugins
 !db.db
 !config/config.php
