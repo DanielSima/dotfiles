@@ -1,6 +1,6 @@
 *
 !*/
-!.gitignore
+!/.gitignore
 /www/Dashboard/api/vendor
 /www/Dashboard/less
 /www/Dashboard/plugins
