@@ -15,4 +15,4 @@
 
 !/www/db
 /ww/db/*
-!/www/db/db.db
+!/www/db/*.db
