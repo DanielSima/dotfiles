@@ -4,7 +4,7 @@
 /organizr/
 /php/
 
-/www/
+/www/*
 !/www/Dashboard
 /www/Dashboard/*
 !/www/Dashboard/api
