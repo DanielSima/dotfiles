@@ -25,22 +25,28 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ################################################################################
 #pivpn
 curl -L https://install.pivpn.io | bash
+pivpn add
 ################################################################################
 #containers
 ################################################################################
 #homeassistant
-docker run --init -d --restart=unless-stopped --name homeassistant -e TZ=Europe/Prague \
+sudo docker run --init -d --restart=unless-stopped --name homeassistant -e TZ=Europe/Prague \
 -v /home/pi/configs/raspberry_pi_1/homeassistant:/config --net=host \
 homeassistant/raspberrypi3-homeassistant:stable
 
 #pihole
-docker run --init -d --restart=unless-stopped --name pihole -e TZ=Europe/Prague \
+sudo docker run --init -d --restart=unless-stopped --name pihole -e TZ=Europe/Prague \
 -v /home/pi/configs/raspberry_pi_1/pihole/pihole:/etc/pihole -v /home/pi/configs/raspberry_pi_1/pihole/dnsmasq.d/:/etc/dnsmasq.d \
 -p 53:53/tcp -p 53:53/udp -p 80:80 -p 443:443 --dns=127.0.0.1 --dns=8.8.8.8 \
 pihole/pihole:latest
 
 #organizr
-docker run --init -d --restart unless-stopped --name organizr -e TZ=Europe/Prague \
+sudo docker run --init -d --restart unless-stopped --name organizr -e TZ=Europe/Prague \
 -v /home/pi/configs/raspberry_pi_1/organizr:/config \
 -e PUID=1000 -e PGID=1000 -p 9983:80 \
 linuxserver/organizr
+
+sudo docker run --restart unless-stopped --name organizr -e TZ=Europe/Prague \
+-v /home/pi/configs/raspberry_pi_1/organizr:/config \
+-e PUID=1000 -e PGID=1000 -p 9983:80 \
+organizrtools/organizr-v2
