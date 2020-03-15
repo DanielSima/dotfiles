@@ -1,5 +1,8 @@
 *
 !*/
 !.gitignore
+/www/Dashboard/api/vendor
+/www/Dashboard/less
+/www/Dashboard/Plugins
 !db.db
 !config/config.php
