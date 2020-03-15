@@ -1,0 +1,7 @@
+[15-Mar-2020 11:09:22] NOTICE: fpm is running, pid 291
+[15-Mar-2020 11:09:22] NOTICE: ready to handle connections
+[15-Mar-2020 11:58:13] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
+[15-Mar-2020 12:01:54] NOTICE: Terminating ...
+[15-Mar-2020 12:01:54] NOTICE: exiting, bye-bye!
+[15-Mar-2020 12:14:49] NOTICE: fpm is running, pid 365
+[15-Mar-2020 12:14:49] NOTICE: ready to handle connections
