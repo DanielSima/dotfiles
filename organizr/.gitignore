@@ -8,4 +8,6 @@
 /www/Dashboard/.gitignore
 !.gitignore
 !db.db
-!config/config.php
+!/www/Dashboard/api/config
+/www/Dashboard/api/config/*
+!/www/Dashboard/api/config/config.php
