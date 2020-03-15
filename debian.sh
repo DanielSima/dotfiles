@@ -13,9 +13,9 @@
 #sudo apt-get update && sudo apt-get upgrade
 #sudo apt install git
 #mkdir /home/pi/configs
-#git clone https://github.com/DanielSima/home-assistant.git /home/win/configs/debian
-#sudo chmod 777 /home/win/configs/debian/debian.sh
-#/home/win/configs/debian/debian.sh
+#git clone  --single-branch --branch debian https://github.com/DanielSima/dotfiles.git /home/pi/configs/debian
+#sudo chmod 777 /home/pi/configs/debian/debian.sh
+#/home/pi/configs/debian/debian.sh
 
 #SCRIPT START
 # exit when any command fails
