@@ -4,5 +4,6 @@
 /www/Dashboard/api/vendor
 /www/Dashboard/less
 /www/Dashboard/plugins
+/www/Dashboard/.gitignore
 !db.db
 !config/config.php
