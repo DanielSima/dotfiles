@@ -1,3 +1,8 @@
-/keys
+/keys/
+/log/
+/nginx/
+/organizr/
+/php/
+/www/
 !/www/Dashboard/api/config/
 !/www/db/
