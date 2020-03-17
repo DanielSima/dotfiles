@@ -1,22 +1,21 @@
-#don't forget to restart terminal after changes - source .bashrc
+#cheat.sh
+function cheat() { 
 
-#init and add remote for current directory
-function gir() {
-
-    git init && git remote add origin $1
-  
-}
-
-#commit and push current directory
-function gcp() {
-
-    git add . && git commit -am "$1" && git push -u origin master
+    curl cheat.sh/"$1"
 
 }
 
-#move file and symlink it back, useful for putting dotfiles into git directory
-function msl() { 
+#history (use !number)
+function hs() { 
 
-    mv "$1" "$2" && ln -s "$2" "$1"
+    history | grep --color=always $1
 
 }
+
+#better ls
+function lss() { 
+
+    ls --color --classify --group-directories-first --human-readable --almost-all $1
+
+}
+

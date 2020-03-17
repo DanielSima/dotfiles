@@ -26,22 +26,29 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap 'echo "\"${last_command}\" command failed with exit code $?."' EXIT
 #save current dir, the cloned repo location
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-
+################################################################################
+#config
+################################################################################
+sudo timedatectl set-timezone Europe/Prague
 ################################################################################
 #packages
 ################################################################################
-#apps
-sudo apt-get install -y samba iotop iftop htop smartmontools nano neofetch
+sudo apt-get install -y samba iotop iftop htop smartmontools nano neofetch netdata
 #docker
 curl https://get.docker.com | sh
-
 ################################################################################
 #dotfiles
 ################################################################################
 #nano
 ln -sf $(DIR)/nanorc /etc/nanorc
+#netdata
+ln -sf $(DIR)/netdata/netdata.conf /etc/netdata/netdata.conf
+sudo systemctl restart netdata
 #motd
 sudo rm /etc/motd
 sudo rm -r /etc/update-motd.d
 sudo ln -s $(DIR)/update-motd.d /etc/update-motd.d
 sudo chmod -R 777 /etc/update-motd.d
+#bash
+ln -sf /home/pi/configs/debian/.bash_functions /home/pi/.bash_functions
+ln -sf /home/pi/configs/debian/.bashrc /home/pi/.bashrc

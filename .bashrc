@@ -1,3 +1,7 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
 # Functions.
 # These are like aliases, but can take arguments
 # All functions are in ~/.bash_functions for modularity
@@ -5,11 +9,6 @@
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
-
-
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # If not running interactively, don't do anything
 case $- in
