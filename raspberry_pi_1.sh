@@ -27,6 +27,12 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 curl -L https://install.pivpn.io | bash
 pivpn add
 ################################################################################
+#config
+################################################################################
+sudo nano /etc/hostname
+sudo nano /etc/hosts
+sudo reboot now
+################################################################################
 #containers
 ################################################################################
 #homeassistant
@@ -34,19 +40,18 @@ sudo docker run --init -d --restart=unless-stopped --name homeassistant -e TZ=Eu
 -v /home/pi/configs/raspberry_pi_1/homeassistant:/config --net=host \
 homeassistant/raspberrypi3-homeassistant:stable
 
-#pihole
-sudo docker run --init -d --restart=unless-stopped --name pihole -e TZ=Europe/Prague \
--v /home/pi/configs/raspberry_pi_1/pihole/pihole:/etc/pihole -v /home/pi/configs/raspberry_pi_1/pihole/dnsmasq.d/:/etc/dnsmasq.d \
--p 53:53/tcp -p 53:53/udp -p 80:80 -p 443:443 --dns=127.0.0.1 --dns=8.8.8.8 \
-pihole/pihole:latest
-
 #organizr
-sudo docker run --init -d --restart unless-stopped --name organizr -e TZ=Europe/Prague \
--v /home/pi/configs/raspberry_pi_1/organizr:/config \
--e PUID=1000 -e PGID=1000 -p 9983:80 \
-linuxserver/organizr
-
-sudo docker run --restart unless-stopped --name organizr -e TZ=Europe/Prague \
+sudo docker run --restart=unless-stopped --name organizr -e TZ=Europe/Prague \
 -v /home/pi/configs/raspberry_pi_1/organizr:/config \
 -e PUID=1000 -e PGID=1000 -p 9983:80 \
 organizrtools/organizr-v2
+
+#pihole
+sudo docker run --restart=unless-stopped --name pihole -e TZ=Europe/Prague \
+-v /home/pi/configs/raspberry_pi_1/pihole/pihole:/etc/pihole -v /home/pi/configs/raspberry_pi_1/pihole/dnsmasq.d/:/etc/dnsmasq.d \
+--net=host --dns=127.0.0.1 --dns=8.8.8.8 -e ServerIP="192.168.0.152" \
+pihole/pihole:latest
+##ctrl+c needed and then start again
+sudo docker container start pihole
+#change password
+sudo docker exec -it pihole sudo pihole -a -p
