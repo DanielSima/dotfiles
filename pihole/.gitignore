@@ -1,4 +1,4 @@
 /pihole/*
 !/pihole/adlists.list                    
-!/pihole/gravity.list
+!/pihole/regex.list
 !/pihole/setupVars.conf
