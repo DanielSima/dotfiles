@@ -27,24 +27,12 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 curl -L https://install.pivpn.io | bash
 pivpn add
 ################################################################################
-#config
-################################################################################
-sudo nano /etc/hostname
-sudo nano /etc/hosts
-sudo reboot now
-################################################################################
 #containers
 ################################################################################
 #homeassistant
-sudo docker run --init -d --restart=unless-stopped --name homeassistant -e TZ=Europe/Prague \
--v /home/pi/configs/raspberry_pi_1/homeassistant:/config --net=host \
-homeassistant/raspberrypi3-homeassistant:stable
-
-#organizr
-sudo docker run --restart=unless-stopped --name organizr -e TZ=Europe/Prague \
--v /home/pi/configs/raspberry_pi_1/organizr:/config \
--e PUID=1000 -e PGID=1000 -p 9983:80 \
-organizrtools/organizr-v2
+#sudo docker run --init -d --restart=unless-stopped --name homeassistant -e TZ=Europe/Prague \
+#-v /home/pi/configs/raspberry_pi_1/homeassistant:/config --net=host \
+#homeassistant/raspberrypi3-homeassistant:stable
 
 #pihole
 sudo docker run --restart=unless-stopped --name pihole -e TZ=Europe/Prague \
@@ -55,3 +43,10 @@ pihole/pihole:latest
 sudo docker container start pihole
 #change password
 sudo docker exec -it pihole sudo pihole -a -p
+
+################################################################################
+#config
+################################################################################
+sudo nano /etc/hostname
+sudo nano /etc/hosts
+sudo reboot now
