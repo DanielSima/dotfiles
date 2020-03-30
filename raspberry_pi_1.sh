@@ -35,12 +35,10 @@ pivpn add
 #homeassistant/raspberrypi3-homeassistant:stable
 
 #pihole
-sudo docker run --restart=unless-stopped --name pihole -e TZ=Europe/Prague \
+sudo docker run -d --restart=unless-stopped --name pihole -e TZ=Europe/Prague \
 -v /home/pi/configs/raspberry_pi_1/pihole/pihole:/etc/pihole -v /home/pi/configs/raspberry_pi_1/pihole/dnsmasq.d/:/etc/dnsmasq.d \
---net=host  --cap-add=NET_ADMIN --dns=127.0.0.1 --dns=8.8.8.8 -e ServerIP="192.168.0.152" \
+--net=host --cap-add=NET_ADMIN --dns=127.0.0.1 --dns=8.8.8.8 -e ServerIP="192.168.0.152" \
 pihole/pihole:latest
-##ctrl+c needed and then start again
-sudo docker container start pihole
 #change password
 sudo docker exec -it pihole sudo pihole -a -p
 
