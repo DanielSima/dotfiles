@@ -61,3 +61,6 @@ ln -sf $(DIR)/.bashrc /home/pi/.bashrc
 #samba
 sudo ln -sf $(DIR)/smb.conf /etc/samba/smb.conf
 sudo systemctl restart smbd
+#git
+git config --global user.email "dan192000@gmail.com"
+git config --global user.name "DanielSima"
