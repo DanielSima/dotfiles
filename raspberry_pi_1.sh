@@ -6,7 +6,7 @@
 
 #BEFORE THIS DO MANUALLY:
 
-#git clone  --single-branch --branch raspberry_pi_1 https://github.com/DanielSima/dotfiles.git /home/pi/configs/raspberry_pi_1
+#git clone --single-branch --branch raspberry_pi_1 https://github.com/DanielSima/dotfiles.git /home/pi/configs/raspberry_pi_1
 #sudo chmod 777 /home/pi/configs/raspberry_pi_1/raspberry_pi_1.sh
 #/home/pi/configs/raspberry_pi_1/raspberry_pi_1.sh
 
@@ -39,9 +39,6 @@ sudo docker run -d --restart=unless-stopped --name pihole -e TZ=Europe/Prague \
 -v /home/pi/configs/raspberry_pi_1/pihole/pihole:/etc/pihole -v /home/pi/configs/raspberry_pi_1/pihole/dnsmasq.d/:/etc/dnsmasq.d \
 --net=host --cap-add=NET_ADMIN --dns=127.0.0.1 --dns=8.8.8.8 -e ServerIP="192.168.0.152" \
 pihole/pihole:latest
-#change password
-sudo docker exec -it pihole sudo pihole -a -p
-
 ################################################################################
 #config
 ################################################################################
