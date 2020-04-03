@@ -33,22 +33,31 @@ sudo timedatectl set-timezone Europe/Prague
 ################################################################################
 #packages
 ################################################################################
-sudo apt-get install -y samba iotop iftop htop smartmontools nano neofetch netdata
+sudo apt-get install -y samba iotop iftop htop smartmontools nano neofetch
 #docker
 curl https://get.docker.com | sh
+sudo usermod -aG docker pi
+#glances
+curl -L https://bit.ly/glances | /bin/bash
 ################################################################################
 #dotfiles
 ################################################################################
 #nano
-ln -sf $(DIR)/nanorc /etc/nanorc
-#netdata
-ln -sf $(DIR)/netdata/netdata.conf /etc/netdata/netdata.conf
-sudo systemctl restart netdata
+sudo ln -sf $(DIR)/nanorc /etc/nanorc
+#glances
+sudo mkdir -p /etc/glances
+sudo ln -sf $(DIR)/glances/glances.conf /etc/glances/glances.conf
+sudo ln -sf $(DIR)/glances/glances.service /etc/systemd/system/glances.service
+sudo systemctl enable glances
+sudo systemctl start glances
 #motd
 sudo rm /etc/motd
 sudo rm -r /etc/update-motd.d
 sudo ln -s $(DIR)/update-motd.d /etc/update-motd.d
 sudo chmod -R 777 /etc/update-motd.d
 #bash
-ln -sf /home/pi/configs/debian/.bash_functions /home/pi/.bash_functions
-ln -sf /home/pi/configs/debian/.bashrc /home/pi/.bashrc
+ln -sf $(DIR)/.bash_functions /home/pi/.bash_functions
+ln -sf $(DIR)/.bashrc /home/pi/.bashrc
+#samba
+sudo ln -sf $(DIR)/smb.conf /etc/samba/smb.conf
+sudo systemctl restart smbd
