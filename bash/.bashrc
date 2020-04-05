@@ -10,6 +10,13 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
+# Aliases.
+# All Aliases are in ~/.bash_aliases for modularity
+
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;

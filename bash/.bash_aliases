@@ -1,0 +1,1 @@
+alias ls='ls --color --classify --group-directories-first --human-readable --almost-all'

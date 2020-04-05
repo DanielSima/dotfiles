@@ -13,7 +13,7 @@
 #sudo apt-get update && sudo apt-get upgrade
 #sudo apt install git
 #mkdir /home/pi/configs
-#git clone  --single-branch --branch debian https://github.com/DanielSima/dotfiles.git /home/pi/configs/debian
+#git clone --single-branch --branch debian https://github.com/DanielSima/dotfiles.git /home/pi/configs/debian
 #sudo chmod 777 /home/pi/configs/debian/debian.sh
 #/home/pi/configs/debian/debian.sh
 
@@ -56,11 +56,12 @@ sudo rm -r /etc/update-motd.d
 sudo ln -s $(DIR)/update-motd.d /etc/update-motd.d
 sudo chmod -R 777 /etc/update-motd.d
 #bash
-ln -sf $(DIR)/.bash_functions /home/pi/.bash_functions
-ln -sf $(DIR)/.bashrc /home/pi/.bashrc
+sudo ln -sf $(DIR)/bash/.bash_functions /home/pi/.bash_functions
+sudo ln -sf $(DIR)/bash/.bash_aliases/home/pi/.bash_aliases
+sudo ln -sf $(DIR)/bash/.bashrc /home/pi/.bashrc
 #samba
 sudo ln -sf $(DIR)/smb.conf /etc/samba/smb.conf
 sudo systemctl restart smbd
 #git
-git config --global user.email "dan192000@gmail.com"
+git config --global user.email "dan0nik192000@gmail.com"
 git config --global user.name "DanielSima"
