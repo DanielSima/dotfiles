@@ -1,0 +1,110 @@
+default_config:
+
+tts:
+  - platform: google_translate
+
+sun:
+
+zone:
+  - name: School
+    latitude: !secret school1_latitude
+    longitude: !secret school1_longitude
+    radius: 100
+    icon: mdi:school
+  - name: School
+    latitude: !secret school2_latitude
+    longitude: !secret school2_longitude
+    radius: 100
+    icon: mdi:school
+  - name: Work
+    latitude: !secret work_latitude
+    longitude: !secret work_longitude
+    radius: 1300
+    icon: mdi:briefcase
+
+sensor:
+  - platform: mitemp_bt
+    mac: '58:2D:34:37:2B:96'
+    name: Bedroom TH
+  - platform: mitemp_bt
+    mac: '58:2D:34:38:37:70'
+    name: Outdoor TH
+  - platform: template
+    sensors:
+      sunset_time:
+        value_template: '{{ as_timestamp(states.sun.sun.attributes.next_setting)  | timestamp_custom("%H:%M") }}'
+      sunrise_time:
+        value_template: '{{ as_timestamp(states.sun.sun.attributes.next_rising)  | timestamp_custom("%H:%M") }}'
+
+#sonoff:
+#  username: !secret sonoff_username
+#  password: !secret sonoff_password
+#  api_region: 'eu'
+
+light:
+  - platform: flux_led
+    devices:
+      192.168.0.171:
+        name: Bedroom Lamp
+        mode: rgbw
+      192.168.0.174:
+        name: Ambient Light
+        mode: rgb
+
+media_player:
+#  - platform: xboxone
+#    ip_address: 192.168.0.160
+#    device: FD00D4D2889E1428
+#    name: Xbox One
+#    authentication: false
+
+cast:
+  media_player:
+    - host: 192.168.0.162
+    - host: 192.168.0.163
+    - host: 192.168.0.164
+
+remote:
+  - platform: harmony
+    name: Harmony Hub
+    host: 192.168.0.166
+
+device_tracker:
+  - platform: google_maps
+    username: !secret gm_username
+  - platform: ping
+    hosts: 
+      pc: 192.168.0.150
+      xbox: 192.168.0.160
+      samsung_tv: 192.168.0.161
+      pixel: 192.168.0.169
+
+switch:
+  - platform: template
+    switches:
+      pc:
+        friendly_name: PC
+        value_template: "{{ is_state('device_tracker.pc', 'home') }}"
+        turn_on:
+          service: script.pc_on
+        turn_off:
+          service: script.pc_off
+      samsung_tv:
+        friendly_name: TV
+        value_template: "{{ is_state('device_tracker.samsung_tv', 'home') }}"
+        turn_on:
+          service: script.tv_on
+        turn_off:
+          service: script.tv_off
+      xbox:
+        friendly_name: Xbox One
+        value_template: "{{ is_state('device_tracker.xbox', 'home') }}"
+        turn_on:
+          service: script.xbox_on
+        turn_off:
+          service: script.xbox_off
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml

@@ -1,0 +1,63 @@
+tv_input1:
+  sequence:
+  - service: remote.send_command
+    data:
+      entity_id: remote.harmony_hub
+      device: '61667244'
+      command: 'InputHdmi1'
+
+tv_input2:
+  sequence:
+  - service: remote.send_command
+    data:
+      entity_id: remote.harmony_hub
+      device: '61667244'
+      command: 'InputHdmi2'
+
+tv_input3:
+  sequence:
+  - service: remote.send_command
+    data:
+      entity_id: remote.harmony_hub
+      device: '61667244'
+      command: 'InputHdmi3'
+
+xbox_on:
+  sequence:
+  - service: remote.send_command
+    data:
+      entity_id: remote.harmony_hub
+      device: '56238382'
+      command: 'PowerOn'
+
+xbox_off:
+  sequence:
+  - service: remote.send_command
+    data:
+      entity_id: remote.harmony_hub
+      device: '56238382'
+      command: 'PowerOff'
+
+tv_on:
+  sequence:
+  - service: remote.send_command
+    data:
+      entity_id: remote.harmony_hub
+      device: '61667244'
+      command: 'PowerOn'
+
+tv_off:
+  sequence:
+  - service: remote.send_command
+    data:
+      entity_id: remote.harmony_hub
+      device: '61667244'
+      command: 'PowerOff'
+
+pc_on:
+  sequence:
+    - service: shell_command.pc_on
+
+pc_off:
+  sequence:
+    - service: shell_command.pc_off   

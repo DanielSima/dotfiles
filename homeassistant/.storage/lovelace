@@ -1,0 +1,133 @@
+{
+    "data": {
+        "config": {
+            "title": "Home",
+            "views": [
+                {
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.bedroom_th_humidity"
+                                },
+                                {
+                                    "entity": "sensor.bedroom_th_temperature"
+                                },
+                                {
+                                    "entity": "sensor.outdoor_th_temperature"
+                                },
+                                {
+                                    "entity": "sensor.outdoor_th_humidity"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
+                            "type": "history-graph"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "device_tracker.google_maps_100494311809700830965",
+                                            "name": "Miroslava"
+                                        },
+                                        {
+                                            "entity": "device_tracker.google_maps_100966607590506715282",
+                                            "name": "Tereza"
+                                        },
+                                        {
+                                            "entity": "device_tracker.google_maps_homeassistant753_gmail_com",
+                                            "name": "Daniel"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "type": "history-graph"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "entities": [
+                                "light.ambient_light",
+                                "light.bedroom_lamp"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Light",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "switch.pc",
+                                "switch.samsung_tv",
+                                "switch.xbox"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Switch",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "weather.home",
+                            "type": "weather-forecast"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "media_player.living_room_tv",
+                                    "type": "media-control"
+                                },
+                                {
+                                    "entity": "media_player.bedroom_tv",
+                                    "type": "media-control"
+                                },
+                                {
+                                    "entity": "media_player.study_tv",
+                                    "type": "media-control"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "entities": [
+                                "script.pc_off",
+                                "script.pc_on",
+                                "script.tv_input1",
+                                "script.tv_input2",
+                                "script.tv_input3",
+                                "script.tv_off",
+                                "script.tv_on",
+                                "script.xbox_off",
+                                "script.xbox_on"
+                            ],
+                            "title": "Script",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.sunrise_time",
+                                    "icon": "mdi:weather-sunset-up",
+                                    "name": "Sunrise"
+                                },
+                                {
+                                    "entity": "sensor.sunset_time",
+                                    "icon": "mdi:weather-sunset-down",
+                                    "name": "Sunset"
+                                }
+                            ],
+                            "show_icon": true,
+                            "show_name": true,
+                            "show_state": true,
+                            "type": "glance"
+                        }
+                    ],
+                    "path": "default_view",
+                    "title": "Home"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}

@@ -1,0 +1,68 @@
+- alias: 'On Sunset'
+  trigger:
+    - platform: sun
+      event: sunset
+  condition:
+    - condition: state
+      entity_id: device_tracker.pixel
+      state: 'home'
+  action:
+    - service: light.turn_on
+      entity_id: light.ambient_light
+
+- alias: 'On Sunrise'
+  trigger:
+    - platform: sun
+      event: sunrise
+  action:
+    - service: light.turn_off
+      entity_id: light.ambient_light      
+      
+- alias: 'Good Morning'
+  trigger:
+      # this webhook is triggered from Tasker when alarm rings.
+    - platform: webhook
+      webhook_id: good_morning
+#    - platform: time
+#      at: "04:20:00"
+  condition:
+    - condition: state
+      entity_id: device_tracker.pixel
+      state: 'home'
+  action:
+    #- service: switch.turn_on
+    #  entity_id: switch.switch.sonoff_1000509572
+    - service: switch.turn_on
+      entity_id: switch.xbox
+    - condition: sun
+      before: sunrise
+    - service: light.turn_on
+      entity_id: light.ambient_light
+        
+
+- alias: 'Daniel Home'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.pixel
+      to: "home"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.xbox
+    - condition: sun
+      after: sunset
+    - service: light.turn_on
+      entity_id: light.ambient_light
+      
+- alias: 'Good Bye'
+  trigger:
+      # this webhook is triggered from Tasker when touched NFC sticker.
+    - platform: webhook
+      webhook_id: good_bye
+  action:
+    - service: light.turn_off
+      entity_id: light.ambient_light
+    #- service: switch.turn_off
+    #  entity_id: switch.switch.sonoff_1000509572
+    - service: switch.turn_off
+      entity_id: switch.xbox
+      

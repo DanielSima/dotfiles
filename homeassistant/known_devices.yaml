@@ -1,0 +1,49 @@
+
+google_maps_100966607590506715282:
+  icon:
+  mac:
+  name: Tereza
+  picture: https://lh3.googleusercontent.com/a-/AOh14Gh6y1B8LMvSssnTsGudh-L-8YHI2yZ4AYT3dQp0XyA
+  track: true
+
+google_maps_100494311809700830965:
+  icon:
+  mac:
+  name: Miroslava
+  picture: https://lh3.googleusercontent.com/a-/AOh14Gjfc8kVt4E616odBfp0TgTXuw4WzJxOwCt-fokH6w
+  track: true
+
+google_maps_homeassistant753_gmail_com:
+  icon:
+  mac:
+  name: Daniel
+  picture:
+  track: true
+
+pc:
+  icon:
+  mac:
+  name: pc
+  picture:
+  track: true
+
+xbox:
+  icon:
+  mac:
+  name: xbox
+  picture:
+  track: true
+
+samsung_tv:
+  icon:
+  mac:
+  name: samsung_tv
+  picture:
+  track: true
+
+pixel:
+  icon:
+  mac:
+  name: pixel
+  picture:
+  track: true
