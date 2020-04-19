@@ -1,38 +1,18 @@
 # Raspberry Pi 2
-These are dotfiles for the debian distribution. The script likely works on other distributions too but it's untested.
+These are dotfiles for my raspberry pi #2.
 
-Originally intended to setup Raspberry Pis after first boot up.
+It contains my media center dotfiles and other configuration files or databases.
 
 ## Usage
-
-set passwords for user and root:
-
-	passwd
-	sudo passwd
-
-update system:
-
-	sudo apt-get update && sudo apt-get upgrade
-    
-download git:
-
-	sudo apt install git
-    
-create dotfiles folder:
-
-	mkdir /home/[USER]/dotfiles
     
 download this branch:
 
-	git clone --single-branch --branch debian https://github.com/DanielSima/dotfiles.git /home/[USER]/dotfiles/debian
+	git clone --single-branch --branch raspberry_pi_2 https://github.com/DanielSima/dotfiles.git /home/[USER]/dotfiles/raspberry_pi_2
 
 give execute permission:
 
-	sudo chmod +r /home/[USER]/dotfiles/debian/debian.sh
+	sudo chmod +r /home/[USER]/dotfiles/raspberry_pi_2/raspberry_pi_2.sh
 
-and finally execute the script:
+and execute the script:
 
-	/home/[USER]/dotfiles/debian/debian.sh
-    
-### Note
-If connecting through SSH use `ssh-keygen -R "[ip]"` to delete previous SSH key.
+	/home/[USER]/dotfiles/raspberry_pi_2/raspberry_pi_2.sh
