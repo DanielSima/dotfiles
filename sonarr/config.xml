@@ -8,4 +8,7 @@
   <ApiKey>c327640425a24a119f92d83c4d5b6198</ApiKey>
   <AuthenticationMethod>None</AuthenticationMethod>
   <Branch>master</Branch>
+  <LaunchBrowser>True</LaunchBrowser>
+  <SslCertHash></SslCertHash>
+  <UpdateMechanism>BuiltIn</UpdateMechanism>
 </Config>
