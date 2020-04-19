@@ -1,0 +1,23 @@
+.vscode
+
+cache/*
+data/*
+
+plex/*
+!plex/Library/Application Support/Plex Media Server/Plug-in Support
+!plex/Library/Application Support/Plex Media Server/Plug-ins
+!plex/Library/Application Support/Plex Media Server/Preferences.xml
+
+jackett/*
+!jackett/Jackett/ServerConfig.json
+!jackett/Jackett/Indexers
+
+qBittorrent/*
+!qBittorrent/qBittorrent.conf
+!qBittorrent/qBittorrent-data.conf
+
+radarr/*
+!radarr/Backups
+
+sonarr/*
+!sonarr/Backups
