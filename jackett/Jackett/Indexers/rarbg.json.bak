@@ -1,0 +1,43 @@
+[
+  {
+    "id": "sitelink",
+    "type": "inputstring",
+    "name": "Site Link",
+    "value": "https://rarbg.to/"
+  },
+  {
+    "id": "url",
+    "type": "inputstring",
+    "name": "Url",
+    "value": "https://torrentapi.org/"
+  },
+  {
+    "id": "cookieheader",
+    "type": "hiddendata",
+    "name": "CookieHeader",
+    "value": "__cfduid=d5521565521d692bcd67c3748b161f9f71587478082; __cf_bm=86faae1caa4e03cb2a76b10190b2328bbecec2d2-1587480874-1800-AR8s6P79/z/DqXPnxlgwD2ov+tnKqXLXrjehccKLRgxqAQ8YC/nCxsHv953CUXbOFC7IJc49Is8NbWtmkGaqEBg="
+  },
+  {
+    "id": "lasterror",
+    "type": "hiddendata",
+    "name": "LastError",
+    "value": null
+  },
+  {
+    "id": "sortrequestedfromsite",
+    "type": "inputselect",
+    "name": "Sort requested from site",
+    "value": "seeders",
+    "options": {
+      "last": "created",
+      "seeders": "seeders",
+      "leechers": "leechers"
+    }
+  },
+  {
+    "id": "generatetorrentdownloadlinkadditionallytomagnet(notrecommendedduetoddosprotection).",
+    "type": "inputbool",
+    "name": "Generate torrent download link additionally to magnet (not recommended due to DDoS protection).",
+    "value": false
+  }
+]

@@ -11,7 +11,7 @@ download this branch:
 
 give execute permission:
 
-	sudo chmod +r /home/[USER]/dotfiles/raspberry_pi_2/raspberry_pi_2.sh
+	sudo chmod +x /home/[USER]/dotfiles/raspberry_pi_2/raspberry_pi_2.sh
 
 and execute the script:
 

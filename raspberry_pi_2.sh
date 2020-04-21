@@ -34,7 +34,8 @@ sudo docker run -d --restart unless-stopped --name=jackett -e TZ=Europe/Prague \
 -e PUID=1000 -e PGID=1000  -p 9117:9117 \
 linuxserver/jackett
 
-#the next containers are using mount to just /media/disk1. the /tv, /movies and /downloads mount are then setuped manully.
+#the next containers are using mount to just /media/disk1. the /tv and /movies mount are then setuped manully.
+#The /download directory needs to use remote path mappings to correctly work with qbittorrent container.
 #this is so we are using just one mount and hardlinks can work.
 #sonarr
 sudo docker run -d --restart unless-stopped --name=sonarr -e TZ=Europe/Prague \
