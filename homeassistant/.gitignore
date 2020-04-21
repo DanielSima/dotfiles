@@ -8,6 +8,7 @@ secrets.yaml
 .google_maps_location_sharing.cookies.homeassistant753_gmail_com
 tts
 deps
+core
 .vscode
 .cloud
 /.storage/*
