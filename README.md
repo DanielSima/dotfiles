@@ -28,7 +28,7 @@ download this branch:
 
 give execute permission:
 
-	sudo chmod +r /home/[USER]/dotfiles/debian/debian.sh
+	sudo chmod +x /home/[USER]/dotfiles/debian/debian.sh
 
 and finally execute the script:
 
