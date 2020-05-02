@@ -4,12 +4,6 @@
 # SETUP SCRIPT FOR RASPBERRY PI 1
 ################################################################################
 
-#BEFORE THIS DO MANUALLY:
-
-#git clone --single-branch --branch raspberry_pi_1 https://github.com/DanielSima/dotfiles.git /home/pi/configs/raspberry_pi_1
-#sudo chmod 777 /home/pi/configs/raspberry_pi_1/raspberry_pi_1.sh
-#/home/pi/configs/raspberry_pi_1/raspberry_pi_1.sh
-
 #SCRIPT START
 # exit when any command fails
 set -e

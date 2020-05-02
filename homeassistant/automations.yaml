@@ -30,8 +30,8 @@
       entity_id: device_tracker.pixel
       state: 'home'
   action:
-    #- service: switch.turn_on
-    #  entity_id: switch.switch.sonoff_1000509572
+    - service: switch.turn_on
+      entity_id: switch.sonoff_1000509572
     - service: switch.turn_on
       entity_id: switch.xbox
     - condition: sun
@@ -47,6 +47,8 @@
       to: "home"
   action:
     - service: switch.turn_on
+      entity_id: switch.sonoff_1000509572
+    - service: switch.turn_on
       entity_id: switch.xbox
     - condition: sun
       after: sunset
@@ -61,8 +63,20 @@
   action:
     - service: light.turn_off
       entity_id: light.ambient_light
-    #- service: switch.turn_off
-    #  entity_id: switch.switch.sonoff_1000509572
+    - service: switch.turn_off
+      entity_id: switch.sonoff_1000509572
     - service: switch.turn_off
       entity_id: switch.xbox
-      
+
+#when switching TV to HDR, sound SOMETIMES stops working. 
+- alias: 'Restart Sound'
+  trigger:
+      # this webhook is triggered from Tasker when touched NFC sticker.
+    - platform: webhook
+      webhook_id: restart_sound
+  action:
+    - service: switch.turn_off
+      entity_id: switch.sonoff_1000509572
+    - delay: '00:00:02'
+    - service: switch.turn_on
+      entity_id: switch.sonoff_1000509572

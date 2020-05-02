@@ -59,9 +59,30 @@
                         },
                         {
                             "entities": [
-                                "switch.pc",
-                                "switch.samsung_tv",
-                                "switch.xbox"
+                                {
+                                    "entity": "switch.pc"
+                                },
+                                {
+                                    "entity": "switch.samsung_tv"
+                                },
+                                {
+                                    "entity": "switch.xbox"
+                                },
+                                {
+                                    "entity": "switch.sonoff_1000509657"
+                                },
+                                {
+                                    "entity": "switch.sonoff_1000509572"
+                                },
+                                {
+                                    "entity": "switch.sonoff_10005093b7"
+                                },
+                                {
+                                    "entity": "switch.sonoff_10004fe9fe"
+                                },
+                                {
+                                    "entity": "switch.sonoff_10004db598"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Switch",
