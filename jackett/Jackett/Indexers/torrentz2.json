@@ -9,13 +9,13 @@
     "id": "cookieheader",
     "type": "hiddendata",
     "name": "CookieHeader",
-    "value": "__cf_bm=ff5631683cfbfd9f3bf5ded61a91e7ecd5313187-1587480878-1800-AcSHy33mbSDxNaBl+k46445dMI3CCz5N9m+jBm2Xz4/QacK7nag7Z/745Lrb2SAKHu7Q1PRNzt79/pV5jHGm6d0=; __cfduid=ddefc4e55c70a63081108091f8b381ca61587320392; cf_clearance=952edb96f576c863cde46fa3e4d22bfa44e7f995-1587320401-0-150"
+    "value": "__cf_bm=81b4658e3e3be615617ce1a1d8f3b1496aeba25d-1587545405-1800-AdOK7B3Q6ZI9kfYxq/3QRRbO7k50EXK+BASQFYLaXq/CH8/VTalwFCwTfF1PWWq+ZiRWp1SwvtD4VVoqDRPsjpM=; __cfduid=ddefc4e55c70a63081108091f8b381ca61587320392; cf_clearance=952edb96f576c863cde46fa3e4d22bfa44e7f995-1587320401-0-150"
   },
   {
     "id": "lasterror",
     "type": "hiddendata",
     "name": "LastError",
-    "value": null
+    "value": "Exception (torrentz2): Clearance failed after 10 attempt(s).: Clearance failed after 10 attempt(s)."
   },
   {
     "id": "adddownloadlinksviaitorrents.org",
