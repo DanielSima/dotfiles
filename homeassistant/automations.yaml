@@ -4,7 +4,7 @@
       event: sunset
   condition:
     - condition: state
-      entity_id: device_tracker.pixel
+      entity_id: device_tracker.phone_daniel
       state: 'home'
   action:
     - service: light.turn_on
@@ -23,17 +23,17 @@
       # this webhook is triggered from Tasker when alarm rings.
     - platform: webhook
       webhook_id: good_morning
-#    - platform: time
-#      at: "04:20:00"
   condition:
     - condition: state
-      entity_id: device_tracker.pixel
+      entity_id: device_tracker.phone_daniel
       state: 'home'
   action:
     - service: switch.turn_on
       entity_id: switch.sonoff_1000509572
     - service: switch.turn_on
       entity_id: switch.xbox
+    - service: switch.turn_on
+      entity_id: switch.samsung_tv
     - condition: sun
       before: sunrise
     - service: light.turn_on
@@ -43,13 +43,15 @@
 - alias: 'Daniel Home'
   trigger:
     - platform: state
-      entity_id: device_tracker.pixel
+      entity_id: device_tracker.phone_daniel
       to: "home"
   action:
     - service: switch.turn_on
       entity_id: switch.sonoff_1000509572
     - service: switch.turn_on
       entity_id: switch.xbox
+    - service: switch.turn_on
+      entity_id: switch.samsung_tv
     - condition: sun
       after: sunset
     - service: light.turn_on
@@ -67,6 +69,8 @@
       entity_id: switch.sonoff_1000509572
     - service: switch.turn_off
       entity_id: switch.xbox
+    - service: switch.turn_off
+      entity_id: switch.samsung_tv
 
 #when switching TV to HDR, sound SOMETIMES stops working. 
 - alias: 'Restart Sound'
@@ -80,3 +84,23 @@
     - delay: '00:00:02'
     - service: switch.turn_on
       entity_id: switch.sonoff_1000509572
+
+- alias: 'Notify Home'
+  trigger:
+  - platform: state
+    entity_id: device_tracker.phone_tereza #Tereza #TODO change to maps when working
+    from: 'not_home'
+    to: 'home'
+  - platform: state
+    entity_id: device_tracker.google_maps_100494311809700830965 #Miroslava
+    from: 'not_home'
+    to: 'home'
+  - platform: state
+    entity_id: device_tracker.google_maps_109263793840602920999 #Daniel
+    from: 'not_home'
+    to: 'home'
+  action:
+    service: notify.Discord
+    data_template:
+      message: '{{ trigger.from_state.attributes.friendly_name }} is now home.'
+      target: '722057075802374148'

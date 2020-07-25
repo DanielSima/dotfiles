@@ -3,23 +3,31 @@ default_config:
 tts:
   - platform: google_translate
 
-sun:
-
 zone:
-  - name: School
-    latitude: !secret school1_latitude
-    longitude: !secret school1_longitude
-    radius: 100
+  - name: Med. School
+    latitude: 50.146600
+    longitude: 14.098480
+    radius: 60
     icon: mdi:school
-  - name: School
-    latitude: !secret school2_latitude
-    longitude: !secret school2_longitude
-    radius: 100
+  - name: Hospital
+    latitude: 50.141024
+    longitude: 14.087848
+    radius: 135
+    icon: mdi:briefcase
+  - name: CVUT
+    latitude: 50.102836
+    longitude: 14.391640
+    radius: 400
     icon: mdi:school
-  - name: Work
-    latitude: !secret work_latitude
-    longitude: !secret work_longitude
-    radius: 1300
+  - name: ABRA
+    latitude: 50.042861
+    longitude: 14.314760
+    radius: 100
+    icon: mdi:briefcase
+  - name: Airport
+    latitude: 50.102309
+    longitude: 14.267545
+    radius: 1480
     icon: mdi:briefcase
 
 sensor:
@@ -73,17 +81,19 @@ device_tracker:
     username: !secret gm_username
   - platform: ping
     hosts: 
-      pc: 192.168.0.150
+      pc_daniel: 192.168.0.150
       xbox: 192.168.0.160
       samsung_tv: 192.168.0.161
-      pixel: 192.168.0.169
+      phone_daniel: 192.168.0.169
+      phone_miroslava: 192.168.0.199
+      phone_tereza: 192.168.0.198
 
 switch:
   - platform: template
     switches:
       pc:
         friendly_name: PC
-        value_template: "{{ is_state('device_tracker.pc', 'home') }}"
+        value_template: "{{ is_state('device_tracker.pc_daniel', 'home') }}"
         turn_on:
           service: script.pc_on
         turn_off:
@@ -107,6 +117,11 @@ shell_command:
   pc_on: 'wakeonlan 34:64:A9:34:A6:69'
   #doesnt work in docker, ssh into host?
   pc_off: !secret pc_off #'net rpc -S 192.168.0.150 -U [username]%[password] shutdown -t 1 -f'
+
+notify:
+  - name: Discord
+    platform: discord
+    token: !secret discord_token
 
 group: !include groups.yaml
 automation: !include automations.yaml

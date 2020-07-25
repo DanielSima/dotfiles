@@ -1,5 +1,2 @@
 /pihole/*
-!/pihole/adlists.list                    
-!/pihole/regex.list
-!/pihole/setupVars.conf
-!/pihole/whitelist.txt
+/dnsmasq.d/*

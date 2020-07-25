@@ -13,37 +13,51 @@ google_maps_100494311809700830965:
   picture: https://lh3.googleusercontent.com/a-/AOh14Gjfc8kVt4E616odBfp0TgTXuw4WzJxOwCt-fokH6w
   track: true
 
-google_maps_homeassistant753_gmail_com:
+google_maps_109263793840602920999:
   icon:
   mac:
   name: Daniel
-  picture:
+  picture: https://lh3.googleusercontent.com/a-/AOh14GhwaG5S6qhC4wTmwvZGJxOixoEHxsz65n_120_DBw
   track: true
 
-pc:
+pc_daniel:
   icon:
   mac:
-  name: pc
+  name: Daniel's PC
   picture:
   track: true
 
 xbox:
   icon:
   mac:
-  name: xbox
+  name: Xbox
   picture:
   track: true
 
 samsung_tv:
   icon:
   mac:
-  name: samsung_tv
+  name: Samsung TV
   picture:
   track: true
 
-pixel:
+phone_daniel:
   icon:
   mac:
-  name: pixel
+  name: Daniel's Phone
+  picture:
+  track: true
+
+phone_tereza:
+  icon:
+  mac:
+  name: Tereza's Phone
+  picture:
+  track: true
+  
+phone_miroslava:
+  icon:
+  mac:
+  name: Miroslava's Phone
   picture:
   track: true
