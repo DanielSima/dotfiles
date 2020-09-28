@@ -1,0 +1,11 @@
+#This text should be appended to existing .bashrc
+
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
+
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
+
+/home/daniel/dotfiles/laptop/motd/update_motd.sh
