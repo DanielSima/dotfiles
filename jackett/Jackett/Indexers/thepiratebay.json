@@ -3,13 +3,13 @@
     "id": "sitelink",
     "type": "inputstring",
     "name": "Site Link",
-    "value": "https://thepiratebay.vip/"
+    "value": "https://thepiratebay0.org/"
   },
   {
     "id": "cookieheader",
     "type": "hiddendata",
     "name": "CookieHeader",
-    "value": "__cfduid=d2b86f18fb2b980d3b2b6d7c53065cb3d1587320392"
+    "value": "__cfduid=d2b86f18fb2b980d3b2b6d7c53065cb3d1587320392; __cf_bm=6cf4960b3754298f5328ea4f8c0bcc05ac51c887-1593262689-1800-AaEImODyDo6LlK/gJ1ohYbTwS+CGjFCskovKESrXBTUO5vp3pEE7pMYe6bZgSQiJjV0yPpV3OpsQpgIaYTQjtgg="
   },
   {
     "id": "lasterror",

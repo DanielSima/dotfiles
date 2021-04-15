@@ -3,7 +3,7 @@
     "id": "sitelink",
     "type": "inputstring",
     "name": "Site Link",
-    "value": "https://torrentz2.eu/"
+    "value": "https://torrentzwealmisr.onion.ly/"
   },
   {
     "id": "cookieheader",
@@ -15,7 +15,7 @@
     "id": "lasterror",
     "type": "hiddendata",
     "name": "LastError",
-    "value": "Exception (torrentz2): Clearance failed after 10 attempt(s).: Clearance failed after 10 attempt(s)."
+    "value": "Found no results while trying to browse this tracker"
   },
   {
     "id": "adddownloadlinksviaitorrents.org",

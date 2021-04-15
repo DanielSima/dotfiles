@@ -3,7 +3,7 @@
     "id": "sitelink",
     "type": "inputstring",
     "name": "Site Link",
-    "value": "https://torrentz2.eu/"
+    "value": "https://torrentz2.is/"
   },
   {
     "id": "cookieheader",
@@ -15,7 +15,7 @@
     "id": "lasterror",
     "type": "hiddendata",
     "name": "LastError",
-    "value": "Exception (torrentz2): Clearance failed after 30 attempt(s).: Clearance failed after 30 attempt(s)."
+    "value": null
   },
   {
     "id": "adddownloadlinksviaitorrents.org",

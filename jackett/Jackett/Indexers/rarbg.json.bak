@@ -6,16 +6,10 @@
     "value": "https://rarbg.to/"
   },
   {
-    "id": "url",
-    "type": "inputstring",
-    "name": "Url",
-    "value": "https://torrentapi.org/"
-  },
-  {
     "id": "cookieheader",
     "type": "hiddendata",
     "name": "CookieHeader",
-    "value": "__cfduid=d1a66a3ded1117bd1274b3a2c294726251592222669; __cf_bm=f872e7248e16c771838b7e82a6b151ce4f801d30-1592222669-1800-AQtrw6+N4c2axlTd5Ill3C3/lexgu4ocRbeDeRiXkLnYpucsKDUpD1ir7650HGR0KGCKGmLMiAAeCuLwwBMWueA="
+    "value": "__cfduid=da0150f800bb036c8df8fa673d5ac73be1592222672; __cf_bm=7b994c9e7252a7623b28f278fcd49442063cd149-1618468362-1800-AQXYcuqjcETIUe2/NqpG/FwaIzNXyi3pdUuTeZ6t2s1pAPNGDqDzHy+UXFMMhXoJEEPic3nAqEWE9o7pN1RjOeY="
   },
   {
     "id": "lasterror",
@@ -35,9 +29,17 @@
     }
   },
   {
-    "id": "generatetorrentdownloadlinkadditionallytomagnet(notrecommendedduetoddosprotection).",
-    "type": "inputbool",
-    "name": "Generate torrent download link additionally to magnet (not recommended due to DDoS protection).",
-    "value": false
+    "id": "numberofretries",
+    "type": "inputselect",
+    "name": "Number of retries",
+    "value": "2",
+    "options": {
+      "0": "No retries (fail fast)",
+      "1": "1 retry (0.5s delay)",
+      "2": "2 retries (1s delay)",
+      "3": "3 retries (2s delay)",
+      "4": "4 retries (4s delay)",
+      "5": "5 retries (8s delay)"
+    }
   }
 ]
