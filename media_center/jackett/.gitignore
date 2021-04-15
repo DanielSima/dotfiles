@@ -1,0 +1,4 @@
+/Jackett/*
+!/Jackett/ServerConfig.json
+!/Jackett/Indexers/
+/Jackett/Indexers/*.json.bak
