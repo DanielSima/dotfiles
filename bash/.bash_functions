@@ -1,7 +1,5 @@
-#cheat.sh
-function cheat() { 
+#this file contains bash functions
 
-    curl cheat.sh/"$1"
+function cheat() { curl cheat.sh/"$1"; }
 
-}
-
+function pfind() { find . -name "*$1*"; }
