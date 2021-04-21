@@ -1,0 +1,12 @@
+[Unit]
+Description=runs xrandr to detect connected monitors correctly
+After=hibernate.target
+
+
+[Service]
+ExecStart=/home/daniel/dotfiles/todo/monitor.reset.sh
+User=daniel
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=hibernate.target
