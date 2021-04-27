@@ -2,7 +2,7 @@
 
 DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)"
 
-MEDIA_DIR="$(MEDIA_DIR)"
+MEDIA_DIR="/media/disk1"
 
 if ! command -v docker &> /dev/null
 then
