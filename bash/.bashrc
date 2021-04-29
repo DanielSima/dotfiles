@@ -79,3 +79,46 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+[ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
+
+# Heavily inspired by @mathiasbynens's prompt: https://github.com/mathiasbynens/dotfiles
+reset="\e[0m";
+black="\e[1;30m";
+blue="\e[1;34m";
+cyan="\e[1;36m";
+green="\e[1;32m";
+purple="\e[1;35m";
+red="\e[1;31m";
+white="\e[1;37m";
+yellow="\e[1;33m";
+
+# Highlight the user name when logged in as root.
+if [[ "${USER}" == "root" ]]; then
+	userStyle="${red}";
+else
+	userStyle="${yellow}";
+fi;
+
+# Highlight the hostname when connected via SSH.
+if [[ "${SSH_TTY}" ]]; then
+	hostStyle="${red}";
+else
+	hostStyle="${blue}";
+fi;
+
+# Set the terminal title and prompt.
+PS1="\[\033]0;\W\007\]"; # working directory base name
+PS1+="\n"; # newline
+PS1+="\[${userStyle}\]\u"; # username
+PS1+="\[${white}\] at ";
+PS1+="\[${hostStyle}\]\h"; # host
+PS1+="\[${white}\] in ";
+PS1+="\[${green}\]\w"; # working directory full path
+PS1+="\n";
+PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+export PS1;
+
+PS2="\[${yellow}\]→ \[${reset}\]";
+export PS2;
