@@ -1,4 +1,5 @@
 configuration {
+  modi: "window,drun,run,calc";
   display-drun: "Applications:";
   display-window: "Windows:";
   display-ssh: "SSH";
