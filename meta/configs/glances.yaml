@@ -1,12 +1,14 @@
 - sudo:
-    - link:
-        /etc/glances/glances.conf: tools/glances/glances.conf
-        /etc/systemd/system/glances.service: tools/glances/glances.service
-    - shell:
-        - |
-            if ! command -v glances &> /dev/null
-            then
-                curl -L https://bit.ly/glances | /bin/bash
-            fi
-        - systemctl enable glances
-        - systemctl start glances
+      - link:
+            /etc/glances/glances.conf: tools/glances/glances.conf
+            /etc/systemd/system/glances.service: tools/glances/glances.service
+      - shell:
+            - command: |
+                  if ! command -v glances &> /dev/null
+                  then
+                      curl -L https://bit.ly/glances | /bin/bash
+                  fi
+              stdout: true
+              stderr: true
+            - systemctl enable glances
+            - systemctl start glances

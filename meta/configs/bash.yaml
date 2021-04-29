@@ -1,13 +1,13 @@
 - link:
-    ~/.bashrc:
-        path: bash/.bashrc
-        force: true
-    ~/.bash_profile:
-        path: bash/.bash_profile
-        force: true
-    ~/.bash_aliases:
-        path: bash/.bash_aliases
-        force: true
-    ~/.bash_functions:
-        path: bash/.bash_functions
-        force: true
+      ~/.bashrc:
+          path: bash/.bashrc
+          force: true
+      ~/.bash_profile:
+          path: bash/.bash_profile
+          force: true
+      ~/.bash_aliases:
+          path: bash/.bash_aliases
+          force: true
+      ~/.bash_functions:
+          path: bash/.bash_functions
+          force: true

@@ -1,4 +1,4 @@
 - link:
-    ~/.gitconfig:
-        path: tools/.gitconfig
-        force: true
+      ~/.gitconfig:
+          path: tools/.gitconfig
+          force: true

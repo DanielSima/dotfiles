@@ -1,6 +1,6 @@
 - sudo:
-    - link:
-        /etc/systemd/system/monitor.reset.service: scripts/monitor.reset.service
-    - shell:
-        - systemctl enable monitor.reset
-        - systemctl start monitor.reset
+      - link:
+            /etc/systemd/system/monitor.reset.service: scripts/monitor.reset.service
+      - shell:
+            - systemctl enable monitor.reset
+            - systemctl start monitor.reset

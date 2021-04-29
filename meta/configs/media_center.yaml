@@ -1,6 +1,5 @@
 - sudo:
-   - shell:
-        -
-          command: ./media_center/media_center_setup.sh
-          stdout: true
-          stderr: true
+      - shell:
+            - command: ./media_center/media_center_setup.sh
+              stdout: true
+              stderr: true
