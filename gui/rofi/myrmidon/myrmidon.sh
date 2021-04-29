@@ -1,4 +1,8 @@
 #!/bin/bash
+
+#copyright: https://github.com/moustacheful/myrmidon
+#usage: /home/daniel/dotfiles/gui/rofi/myrmidon/myrmidon.sh /home/daniel/dotfiles/gui/rofi/[CONFIG].json
+
 cwd=$(echo $(dirname $0))
 
 # Use ~/.myrmidon-tasks.json as default, otherwise use incoming path
