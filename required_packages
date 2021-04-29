@@ -2,6 +2,7 @@ git
 bash-completion
 xrandr
 rofi
+rofi-calc
 spectacle
 normcap
 xdotool
