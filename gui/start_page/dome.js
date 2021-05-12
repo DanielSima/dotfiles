@@ -51,7 +51,7 @@ var sites = {
 	},
 	"Local": {
 		"Home Assistant": "http://192.168.0.151:8123/lovelace/default_view",
-		"Pi-hole": "http://192.168.0.151/admin/",
+		"Pi-hole": "http://server.lan/admin/",
 		"Plex": "http://server.lan:32400/web/index.html",
 		"qBittorrent": "http://server.lan:8080/",
 		"Radarr": "http://server.lan:7878/",
