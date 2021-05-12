@@ -1,0 +1,10 @@
+- sudo:
+      - shell:
+            - command: |
+                  if ! command -v pivpn &> /dev/null
+                  then
+                      curl -L https://install.pivpn.io | bash
+                  fi
+              stdout: true
+              stderr: true
+              stdin: true

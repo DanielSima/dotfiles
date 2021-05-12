@@ -1,0 +1,15 @@
+- shell:
+      - command: |
+            echo "Have you set the SUBDOMAIN and TOKEN in this file(duckdns.yaml)?"
+            select yn in "Yes" "No"; do
+                case $yn in
+                    Yes ) break;;
+                    No ) exit 1;;
+                esac
+            done
+            sudo docker run -d --restart unless-stopped --name duckdns -e TZ=Europe/Prague \
+            -e SUBDOMAINS=subdomain1,subdomain2 -e TOKEN=token \
+            ghcr.io/linuxserver/duckdns
+        stdout: true
+        stdin: true
+        stderr: true
