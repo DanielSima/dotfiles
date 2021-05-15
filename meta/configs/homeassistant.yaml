@@ -1,0 +1,8 @@
+- shell:
+      - command: |
+            sudo docker run --init -d --restart=unless-stopped --name homeassistant -e TZ=Europe/Prague \
+            -v ${PWD}/tools/homeassistant:/config --net=host \
+            homeassistant/home-assistant:stable
+        stdout: true
+        stdin: true
+        stderr: true
