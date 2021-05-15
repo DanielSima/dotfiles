@@ -1,0 +1,58 @@
+xbox_on:
+    sequence:
+        - service: remote.send_command
+          data:
+              entity_id: remote.harmony_hub
+              device: "56238382"
+              command: PowerOn
+xbox_off:
+    sequence:
+        - service: remote.send_command
+          data:
+              entity_id: remote.harmony_hub
+              device: "56238382"
+              command: PowerOff
+tv_on:
+    sequence:
+        - service: remote.send_command
+          data:
+              entity_id: remote.harmony_hub
+              device: "74516742"
+              command: PowerOn
+    mode: single
+tv_off:
+    sequence:
+        - service: remote.send_command
+          data:
+              entity_id: remote.harmony_hub
+              device: "74516742"
+              command: PowerOff
+    mode: single
+receiver_on:
+    sequence:
+        - service: remote.send_command
+          data:
+              entity_id: remote.harmony_hub
+              device: "73559666"
+              command: PowerToggle
+receiver_off:
+    sequence:
+        - service: remote.send_command
+          data:
+              entity_id: remote.harmony_hub
+              device: "73559666"
+              command: PowerToggle
+receiver_up:
+    sequence:
+        - service: remote.send_command
+          data:
+              entity_id: remote.harmony_hub
+              device: "73559666"
+              command: VolumeUp
+receiver_down:
+    sequence:
+        - service: remote.send_command
+          data:
+              entity_id: remote.harmony_hub
+              device: "73559666"
+              command: VolumeDown
