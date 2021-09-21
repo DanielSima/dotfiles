@@ -34,23 +34,21 @@
 // div.innerHTML : {a.innerHTML : a.href}
 var sites = {
 	"Courses": {
-		"DBS": "https://courses.fit.cvut.cz/BI-DBS/index.html",
-		"GIT": "https://courses.fit.cvut.cz/BI-GIT/index.html",
-		"LIN": "https://courses.fit.cvut.cz/BI-LIN/index.html",
-		"LNG": "https://moodle-vyuka.cvut.cz/course/view.php?id=5101",
-		"PA2": "https://courses.fit.cvut.cz/BI-PA2/index.html",
-		"SAP": "https://courses.fit.cvut.cz/BI-SAP/index.html",
+		"AAG": "https://courses.fit.cvut.cz/BI-AAG/",
+		"AG1": "https://courses.fit.cvut.cz/BI-AG1/",
+		"PYT": "https://courses.fit.cvut.cz/BI-PYT/",
+		"ZDM": "https://courses.fit.cvut.cz/BI-ZDM/",
+		"ZMA": "https://courses.fit.cvut.cz/BI-ZMA/",
+		"ZNS": "https://courses.fit.cvut.cz/BI-ZNS/",
 	},
 	"School sites": {
-		"DBS portál": "https://dbs.fit.cvut.cz/",
 		"Grades": "https://grades.fit.cvut.cz/",
-		"KOS": "https://www.kos.cvut.cz/kos/logout.do",
+		"KOS": "https://new.kos.cvut.cz/",
 		"MARAST": "http://marast.fit.cvut.cz/",
-		"Odevzdávač": "https://ddd.fit.cvut.cz/odevzdavac/st-1100/?page=main",
 		"ProgTest": "https://progtest.fit.cvut.cz/",
 	},
 	"Local": {
-		"Home Assistant": "http://192.168.0.151:8123/lovelace/default_view",
+		"Home Assistant": "http://server.lan:8123/lovelace/default_view",
 		"Pi-hole": "http://server.lan/admin/",
 		"Plex": "http://server.lan:32400/web/index.html",
 		"qBittorrent": "http://server.lan:8080/",
