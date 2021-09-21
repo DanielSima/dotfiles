@@ -42,7 +42,7 @@
 - alias: "Daniel Home"
   trigger:
       - platform: state
-        entity_id: device_tracker.phone_daniel
+        entity_id: device_tracker.phone
         to: "home"
   condition:
       - condition: time

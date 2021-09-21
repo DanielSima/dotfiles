@@ -9,6 +9,9 @@ light:
           192.168.0.174:
               name: Ambient Light
               mode: rgb
+          192.168.175:
+              name: Ambient Light 2
+              mode: rgb
 
 # only from UI for some reason
 #remote:
@@ -34,7 +37,7 @@ switch:
                   service: script.pc_on
               turn_off:
                   service: script.pc_off
-          samsung_tv:
+          tv:
               friendly_name: TV
               value_template: "{{ is_state('device_tracker.tv', 'home') }}"
               turn_on:
