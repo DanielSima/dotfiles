@@ -9,13 +9,19 @@
     "id": "cookieheader",
     "type": "hiddendata",
     "name": "CookieHeader",
-    "value": "__cfduid=da0150f800bb036c8df8fa673d5ac73be1592222672; __cf_bm=c60e766ff7ad34ac172b8c3758f155200787d9f2-1618484709-1800-AQX7h60NDH3RdfnBp0qa6ddjyJQTARR30sbbnvyIgqbRrDQdv1koEAhdaYwy+oBggkL6ABuyECa53outUHFJBaQ="
+    "value": "__cfduid=da0150f800bb036c8df8fa673d5ac73be1592222672; __cf_bm=BiMCGywAlzoTO75x9vFiocbfwYV275Bpj0CeQWkTZxk-1632847667-0-AUJnvDc4ZMz5pEKD1BcIoer/CQMXfC94PmzuSJkuQw2LJlpqCrs3ZPOLXj3cJ9a9VyUjycQRUqIQzPu2mefkoZE="
   },
   {
     "id": "lasterror",
     "type": "hiddendata",
     "name": "LastError",
-    "value": null
+    "value": "Exception (rarbg): Resource temporarily unavailable: Resource temporarily unavailable (torrentapi.org:443)"
+  },
+  {
+    "id": "apiurl",
+    "type": "inputstring",
+    "name": "API URL",
+    "value": "https://torrentapi.org/pubapi_v2.php"
   },
   {
     "id": "sortrequestedfromsite",
@@ -41,5 +47,11 @@
       "4": "4 retries (4s delay)",
       "5": "5 retries (8s delay)"
     }
+  },
+  {
+    "id": "tags",
+    "type": "inputtags",
+    "name": "Tags",
+    "value": ""
   }
 ]

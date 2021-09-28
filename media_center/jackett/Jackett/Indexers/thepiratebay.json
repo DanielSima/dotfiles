@@ -3,7 +3,7 @@
     "id": "sitelink",
     "type": "inputstring",
     "name": "Site Link",
-    "value": "https://thepiratebay0.org/"
+    "value": "https://thepiratebay.org/"
   },
   {
     "id": "cookieheader",
@@ -15,23 +15,12 @@
     "id": "lasterror",
     "type": "hiddendata",
     "name": "LastError",
-    "value": null
+    "value": "Exception (thepiratebay): Resource temporarily unavailable: Resource temporarily unavailable (apibay.org:443)"
   },
   {
-    "id": "proxies",
-    "type": "displayinfo",
-    "name": "Proxies",
-    "value": "Yes, <b>The Pirate Bay</b> is currently only reachable via <b>TOR</b>.</br>But you can try to use any of the unofficial proxies above.</br>To check on the status of the official TPB Web Site access the <a href=\"https://pirates-forum.org/misc.php?page=tpbstatus\" target=\"_blank\">tpbstatus</a> page. When the <i>https</i> column has green dots then the site is online."
-  },
-  {
-    "id": "orderresults",
-    "type": "inputselect",
-    "name": "Order results",
-    "value": "8",
-    "options": {
-      "99": "Default",
-      "8": "Seeders",
-      "3": "Time"
-    }
+    "id": "tags",
+    "type": "inputtags",
+    "name": "Tags",
+    "value": ""
   }
 ]

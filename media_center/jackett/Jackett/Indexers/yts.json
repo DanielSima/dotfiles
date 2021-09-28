@@ -15,6 +15,12 @@
     "id": "lasterror",
     "type": "hiddendata",
     "name": "LastError",
-    "value": null
+    "value": "Exception (yts): Resource temporarily unavailable: Resource temporarily unavailable (yts.mx:443)"
+  },
+  {
+    "id": "tags",
+    "type": "inputtags",
+    "name": "Tags",
+    "value": ""
   }
 ]
