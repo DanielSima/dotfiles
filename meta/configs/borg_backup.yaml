@@ -1,0 +1,8 @@
+- sudo:
+      - link:
+            /etc/systemd/system/borg.backup.service: scripts/borg.backup.service
+            /etc/systemd/system/borg.backup.timer: scripts/borg.backup.timer
+      - shell:
+            - systemctl daemon-reload
+            - systemctl enable borg.backup.timer
+            - systemctl start borg.backup.timer

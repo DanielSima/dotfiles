@@ -1,0 +1,11 @@
+[Unit]
+Description=Borg Backup
+Wants=borg.backup.timer
+
+[Service]
+Type=simple
+Nice=19
+CPUSchedulingPriority=50
+IOSchedulingPriority=3
+ExecStart=/home/daniel/dotfiles/scripts/borg.backup.sh
+User=root
