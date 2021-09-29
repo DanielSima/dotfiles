@@ -1,7 +1,8 @@
 #!/bin/bash
 
 SERVER="server.lan"
-REPOSITORY="daniel@${SERVER}:/mnt/hdd/borg/$(hostname)"
+if [ -z ${1+x} ]; then HOSTNAME="$(hostname)"; else HOSTNAME="$1"; fi #workaround for android which doesn't use regular hostnames
+REPOSITORY="daniel@${SERVER}:/mnt/hdd/borg/${HOSTNAME}"
 
 DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)"
 PASSPHRASE="$(cat ""${DIR}"/../secrets/borg")"
@@ -27,7 +28,7 @@ function isDestinationUp {
 }
 
 function main {
-    case $(hostname) in
+    case $HOSTNAME in
         zenbook425)
             local dirs="/home/daniel /etc /usr/local /root"
             local ignore="--exclude '*/[Cc]ache/*' \
@@ -35,18 +36,22 @@ function main {
                           --exclude '*/baloo/*' \
                           --exclude '*/.local/share/Trash'"
             ;;
-        todo)
-            local dirs="todo"
-            local ignore=""
+        oneplus7pro)
+            local dirs="/data/data/com.termux/files/home /storage/emulated/0"
+            local ignore="--exclude '*/0/Android/*' \
+                          --exclude '*/.Ota/* \
+                          --exclude '*/.thumbnails/*' \
+                          --exclude '*/.oprecyclebin/*' \
+                          --exclude 're:OnePlus7ProOxygen_.*\.zip$'"
             ;;
         *)
             echo "Unknown hostname."
             exit 1
             ;;
     esac
-    isDestinationUp                         || { message "Backup of ${dirs} on $(hostname) was unsuccessful! Could not connect to ${SERVER}.";  exit 1; }
-    carryOutBackup "${dirs}" "${ignore}"    || { message "Backup of ${dirs} on $(hostname) was unsuccessful! Error during backup.";             exit 1; }
-    carryOutPrune                           || { message "Pruning of repository $(hostname) was unsuccessful.";                                 exit 1; }
+    isDestinationUp                         || { message "Backup of ${dirs} on ${HOSTNAME} was unsuccessful! Could not connect to ${SERVER}.";  exit 1; }
+    carryOutBackup "${dirs}" "${ignore}"    || { message "Backup of ${dirs} on ${HOSTNAME} was unsuccessful! Error during backup.";             exit 1; }
+    carryOutPrune                           || { message "Pruning of repository ${HOSTNAME} was unsuccessful.";                                 exit 1; }
 }
 
 main
