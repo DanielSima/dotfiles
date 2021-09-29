@@ -1,12 +1,5 @@
 - shell:
       - command: |
-            echo "Have you set the ServerIP in this file (pihole.yaml)?"
-            select yn in "Yes" "No"; do
-                case $yn in
-                    Yes ) break;;
-                    No ) exit 1;;
-                esac
-            done
             sudo docker run -d --restart=unless-stopped --name pihole -e TZ=Europe/Prague \
             -v ${PWD}/tools/pihole/pihole:/etc/pihole -v ${PWD}/tools/pihole/dnsmasq.d/:/etc/dnsmasq.d \
             --net=host --cap-add=NET_ADMIN -e ServerIP="192.168.0.153" \
