@@ -31,18 +31,17 @@ function main {
     case $HOSTNAME in
         zenbook425)
             local dirs="/home/daniel /etc /usr/local /root"
-            local ignore="--exclude '*/[Cc]ache/*' \
-                          --exclude '*/.[Cc]ache/*' \
-                          --exclude '*/baloo/*' \
-                          --exclude '*/.local/share/Trash'"
+            local ignore="--exclude sh:**/*[Cc]ache*/** \
+                          --exclude sh:**/baloo/** \
+                          --exclude sh:**/.local/share/Trash/**"
             ;;
         oneplus7pro)
             local dirs="/data/data/com.termux/files/home /storage/emulated/0"
-            local ignore="--exclude '*/0/Android/*' \
-                          --exclude '*/.Ota/* \
-                          --exclude '*/.thumbnails/*' \
-                          --exclude '*/.oprecyclebin/*' \
-                          --exclude 're:OnePlus7ProOxygen_.*\.zip$'"
+            local ignore="--exclude sh:**/0/Android/** \
+                          --exclude sh:**/.Ota/** \
+                          --exclude sh:**/.thumbnails/** \
+                          --exclude sh:**/.oprecyclebin/** \
+                          --exclude re:OnePlus7ProOxygen_.*\.zip$"
             ;;
         *)
             echo "Unknown hostname."
