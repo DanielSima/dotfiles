@@ -1,7 +1,14 @@
 #!/bin/bash
 
+# USAGE
+# $1
+#   == setup, creates timer
+#   == anything else, runs backup and prune
+# $2
+#   overwrites hostname variable
+
 SERVER="server.lan"
-if [ -z ${1+x} ]; then HOSTNAME="$(hostname)"; else HOSTNAME="$1"; fi #workaround for android which doesn't use regular hostnames
+if [ -z ${2+x} ]; then HOSTNAME="$(hostname)"; else HOSTNAME="$2"; fi #workaround for android which doesn't use regular hostnames
 REPOSITORY="daniel@${SERVER}:/mnt/hdd/borg/${HOSTNAME}"
 
 DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)"
@@ -13,6 +20,52 @@ function message {
         -F "content=$1" \
         -F "username=Bash Scripts" \
         "$(cat ""${DIR}"/../secrets/discord")"
+}
+
+function setUp {
+        case $HOSTNAME in
+        zenbook425)
+            cat > /etc/systemd/system/borg.backup.service <<- EOM
+			[Unit]
+			Description=Borg Backup
+			Wants=borg.backup.timer
+
+			[Service]
+			Type=simple
+			Nice=19
+			CPUSchedulingPriority=50
+			IOSchedulingPriority=3
+			ExecStart=/home/daniel/dotfiles/scripts/borg.backup.sh
+			User=root
+			EOM
+            cat > /etc/systemd/system/borg.backup.timer <<- EOM
+			[Unit]
+			Description=Borg Backup Timer
+			Requires=borg.backup.timer
+
+			[Timer]
+			Unit=borg.backup.service
+			# 2 hours after boot, then every 2 hours
+			OnBootSec=2hours
+			OnUnitActiveSec=2hours
+
+			[Install]
+			WantedBy=timers.target
+			EOM
+            systemctl daemon-reload
+            systemctl enable borg.backup.timer
+            systemctl start borg.backup.timer
+        ;;
+        oneplus7pro)
+            # every day at 21:00
+            # OVERWRITES CORNTAB !
+            echo "0 21 * * * ${DIR}/borg.backup.sh main oneplus7pro" | crontab -
+            ;;
+        *)
+            echo "Unknown hostname."
+            exit 1
+            ;;
+    esac
 }
 
 function carryOutPrune {
@@ -53,4 +106,8 @@ function main {
     carryOutPrune                           || { message "Pruning of repository ${HOSTNAME} was unsuccessful.";                                 exit 1; }
 }
 
-main
+if [ "$1" = "setup" ]; then
+    setUp
+else
+    main
+fi
