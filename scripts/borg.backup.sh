@@ -45,9 +45,9 @@ function setUp {
 
 			[Timer]
 			Unit=borg.backup.service
-			# 2 hours after boot, then every 2 hours
-			OnBootSec=2hours
-			OnUnitActiveSec=2hours
+			# 1 hour after boot, then every 4 hours
+			OnBootSec=1hours
+			OnUnitActiveSec=4hours
 
 			[Install]
 			WantedBy=timers.target
