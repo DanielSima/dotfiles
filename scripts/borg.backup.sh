@@ -59,7 +59,7 @@ function setUp {
         oneplus7pro)
             # every day at 21:00
             # OVERWRITES CORNTAB !
-            echo "0 21 * * * ${DIR}/borg.backup.sh main oneplus7pro" | crontab -
+            echo "0 21 * * * bash ${DIR}/borg.backup.sh main oneplus7pro" | crontab -
             ;;
         *)
             echo "Unknown hostname."
