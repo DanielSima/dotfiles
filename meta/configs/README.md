@@ -206,3 +206,19 @@
     Rofi is a window switcher and an application launcher. Similiar to dmenu or the Start menu on Windows.
 
     It is the first step of moving from KDE to more customizable and easier to source control tools. Right now, it probably doesn't make much sense on it's own.
+
+## VS Code
+
+- **Dependencies:**
+
+    VS Code
+
+- **Prerequisites:**
+
+    None
+
+- **What Does it Do:**
+
+    Replaces `~/.config/Code/User/settings.json`.
+
+    Installs extensions listed in [extensions.sh](../../gui/vscode/extensions.sh).

@@ -1,0 +1,6 @@
+- link:
+      ~/.config/Code/User/settings.json:
+          path: gui/vscode/settings.json
+          force: true
+- shell:
+    - ./gui/vscode/extensions.sh

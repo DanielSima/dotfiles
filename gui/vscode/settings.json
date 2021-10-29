@@ -1,0 +1,72 @@
+{
+    "files.autoSave": "onFocusChange",
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "debug.onTaskErrors": "showErrors",
+    "editor.fontSize": 12,
+    "latex-workshop.message.error.show": false,
+    "latex-workshop.message.warning.show": false,
+    "C_Cpp.loggingLevel": "Debug",
+    "debug.inlineValues": true,
+    "cSpell.allowCompoundWords": true,
+    "cSpell.language": "en,cs",
+    "workbench.colorTheme": "Material Theme Ocean High Contrast",
+    "C_Cpp.default.intelliSenseMode": "gcc-x64",
+    "terminal.integrated.scrollback": 2000,
+    "cSpell.diagnosticLevel": "Hint",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.size": "fit",
+    "editor.fontLigatures": true,
+    "editor.minimap.maxColumn": 200,
+    "editor.minimap.showSlider": "always",
+    "editor.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorBlinking": "phase",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, UseTab: ForIndentation, IndentWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, TabWidth: 4, AlignTrailingComments: true}",
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "python.languageServer": "Pylance",
+    "editor.semanticHighlighting.enabled": true,
+    "Lua.telemetry.enable": true,
+    "cSpell.enableFiletypes": [
+        "lua"
+    ],
+    "Lua.workspace.library": [
+        "/usr/share/awesome"
+    ],
+    "security.workspace.trust.enabled": false,
+    "redhat.telemetry.enabled": false,
+    "bashIde.highlightParsingErrors": true,
+    "bashIde.explainshellEndpoint": "https://explainshell.com/",
+    "python.formatting.provider": "black",
+    "projectManager.git.baseFolders": [
+        "/home/daniel"
+    ],
+    "projectManager.git.ignoredFolders": [
+        "node_modules",
+        "out",
+        "typings",
+        "test",
+        ".haxelib",
+        ".cache",
+        "Trash"
+    ],
+    "projectManager.git.maxDepthRecursion": 0,
+}
