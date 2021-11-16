@@ -32,6 +32,8 @@
 
     Create a file `/secrets/discord` containing the URL of your Discord server webhook.
 
+    Add client's public SSH key (root's if ran with sudo) to `~/.ssh/authorized_keys` on the server.
+
 - **What Does it Do:**
 
     Creates a service and timer that runs the backup on a regular basis.
