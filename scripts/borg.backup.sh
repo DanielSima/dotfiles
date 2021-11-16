@@ -99,6 +99,28 @@ function setUp {
     esac
 }
 
+function beforeBackup {
+    case $HOSTNAME in
+        server)
+            docker stop plex radarr sonarr jackett qbittorrent tautulli
+        ;;
+        *)
+            exit 0
+            ;;
+    esac
+}
+
+function afterBackup {
+    case $HOSTNAME in
+        server)
+            docker start plex radarr sonarr jackett qbittorrent tautulli
+        ;;
+        *)
+            exit 0
+            ;;
+    esac
+}
+
 function carryOutPrune {
     borg prune -v --list "$REPOSITORY" --prefix "auto" --keep-daily=7 --keep-weekly=3 --keep-monthly=-1
 }
@@ -138,8 +160,10 @@ function main {
             ;;
     esac
     isDestinationUp                         || { message "Backup of ${dirs} on ${HOSTNAME} was unsuccessful! Could not connect to ${SERVER}.";  exit 1; }
+    beforeBackup
     carryOutBackup "${dirs}" "${ignore}"    || { message "Backup of ${dirs} on ${HOSTNAME} was unsuccessful! Error during backup.";             exit 1; }
     carryOutPrune                           || { message "Pruning of repository ${HOSTNAME} was unsuccessful.";                                 exit 1; }
+    afterBackup
 }
 
 if [ "$1" = "setup" ]; then
