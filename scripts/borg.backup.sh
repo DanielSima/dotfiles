@@ -24,6 +24,37 @@ function message {
 
 function setUp {
         case $HOSTNAME in
+        server)
+            cat > /etc/systemd/system/borg.backup.service <<- EOM
+			[Unit]
+			Description=Borg Backup
+			Wants=borg.backup.timer
+
+			[Service]
+			Type=simple
+			Nice=19
+			CPUSchedulingPriority=50
+			IOSchedulingPriority=3
+			ExecStart=/home/daniel/dotfiles/scripts/borg.backup.sh
+			User=root
+			EOM
+            cat > /etc/systemd/system/borg.backup.timer <<- EOM
+			[Unit]
+			Description=Borg Backup Timer
+			Requires=borg.backup.timer
+
+			[Timer]
+			Unit=borg.backup.service
+			# every day at 2am
+			OnCalendar=*-*-* 2:00:00
+
+			[Install]
+			WantedBy=timers.target
+			EOM
+            systemctl daemon-reload
+            systemctl enable borg.backup.timer
+            systemctl start borg.backup.timer
+        ;;
         zenbook425)
             cat > /etc/systemd/system/borg.backup.service <<- EOM
 			[Unit]
@@ -82,6 +113,11 @@ function isDestinationUp {
 
 function main {
     case $HOSTNAME in
+        server)
+            local dirs="/home/daniel /etc /usr/local /root"
+            local ignore="--exclude sh:**/*[Cc]ache*/** \
+                          --exclude sh:**/transcode/**"
+        ;;
         zenbook425)
             local dirs="/home/daniel /etc /usr/local /root"
             local ignore="--exclude sh:**/*[Cc]ache*/** \
