@@ -105,7 +105,7 @@ function beforeBackup {
             docker stop plex radarr sonarr jackett qbittorrent tautulli
         ;;
         *)
-            exit 0
+            return 0
             ;;
     esac
 }
@@ -116,7 +116,7 @@ function afterBackup {
             docker start plex radarr sonarr jackett qbittorrent tautulli
         ;;
         *)
-            exit 0
+            return 0
             ;;
     esac
 }
