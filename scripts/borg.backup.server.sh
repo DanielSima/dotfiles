@@ -1,6 +1,7 @@
 #!/bin/bash
 
 BACKUPS_DIR="/mnt/hdd/borg"
+DEST_DIR="b2:/"
 DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)"
 
 function message {
@@ -22,7 +23,7 @@ function checkLastBackups {
 }
 
 function offsiteBackup {
-    #TODO rclone -v sync "$d" b2:borg
+    rclone -v sync "$BACKUPS_DIR" "$DEST_DIR"
 }
 
 checkLastBackups
