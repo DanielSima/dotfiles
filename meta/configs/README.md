@@ -44,6 +44,26 @@
 
     On error, sends a message to your Discord server.
 
+## Borg Backup Server
+
+- **Dependencies:**
+
+    Rclone
+
+    systemd
+
+    sudo
+
+- **Prerequisites:**
+
+    Setup Rclone remote.
+
+- **What Does it Do:**
+
+    Creates a service and timer that runs the off-site backup on a regular basis.
+
+    Checks if all devices created a backup at least once in the last week, sends a message to your Discord server if they did not.
+
 ## DuckDNS
 
 - **Dependencies:**

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# USAGE
+# $1
+#   == setup, creates timer
+#   == anything else, runs backups check and upload to BackBlaze
+
 BACKUPS_DIR="/mnt/hdd/borg"
 DEST_DIR="b2:borg-backup-272"
 DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)"
@@ -9,6 +14,39 @@ function message {
         -F "content=$1" \
         -F "username=Bash Scripts" \
         "$(cat ""${DIR}"/../secrets/discord")"
+}
+
+
+function setUp {
+    cat > /etc/systemd/system/borg.backup.server.service <<- EOM
+	[Unit]
+	Description=Borg Backup Server
+	Wants=borg.backup.server.timer
+
+	[Service]
+	Type=simple
+	Nice=19
+	CPUSchedulingPriority=50
+	IOSchedulingPriority=3
+	ExecStart=/home/daniel/dotfiles/scripts/borg.backup.server.sh
+	User=root
+	EOM
+	cat > /etc/systemd/system/borg.backup.server.timer <<- EOM
+	[Unit]
+	Description=Borg Backup Server Timer
+	Requires=borg.backup.server.timer
+
+	[Timer]
+	Unit=borg.backup.server.service
+	# every day at 2:30am
+	OnCalendar=*-*-* 2:30:00
+
+	[Install]
+	WantedBy=timers.target
+	EOM
+    systemctl daemon-reload
+    systemctl enable borg.backup.server.timer
+    systemctl start borg.backup.server.timer
 }
 
 function checkLastBackups {
@@ -26,5 +64,9 @@ function offsiteBackup {
     rclone sync -v --fast-list --transfers 16 "$BACKUPS_DIR" "$DEST_DIR"
 }
 
-checkLastBackups
-offsiteBackup
+if [ "$1" = "setup" ]; then
+    setUp
+else
+    checkLastBackups
+    offsiteBackup
+fi

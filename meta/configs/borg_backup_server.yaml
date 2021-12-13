@@ -1,0 +1,3 @@
+- sudo:
+      - shell:
+            - scripts/borg.backup.server.sh setup
