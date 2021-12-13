@@ -58,6 +58,8 @@
 
     Setup Rclone remote.
 
+    Create a file `/secrets/discord` containing the URL of your Discord server webhook.
+
 - **What Does it Do:**
 
     Creates a service and timer that runs the off-site backup on a regular basis.
