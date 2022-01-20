@@ -29,7 +29,7 @@ function setUp {
 	CPUSchedulingPriority=50
 	IOSchedulingPriority=3
 	ExecStart=/home/daniel/dotfiles/scripts/borg.backup.server.sh
-	User=root
+	User=daniel
 	EOM
 	cat > /etc/systemd/system/borg.backup.server.timer <<- EOM
 	[Unit]
