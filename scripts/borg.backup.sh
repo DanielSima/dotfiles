@@ -137,18 +137,21 @@ function main {
     case $HOSTNAME in
         server)
             local dirs="/home/daniel /etc /usr/local /root"
-            local ignore="--exclude sh:**/*[Cc]ache*/** \
+            local ignore="--exclude sh:**/*BORG_IGNORE*/** \
+                          --exclude sh:**/*[Cc]ache*/** \
                           --exclude sh:**/transcode/**"
         ;;
         zenbook425)
             local dirs="/home/daniel /etc /usr/local /root"
-            local ignore="--exclude sh:**/*[Cc]ache*/** \
+            local ignore="--exclude sh:**/*BORG_IGNORE*/** \
+                          --exclude sh:**/*[Cc]ache*/** \
                           --exclude sh:**/baloo/** \
                           --exclude sh:**/.local/share/Trash/**"
             ;;
         oneplus7pro)
             local dirs="/data/data/com.termux/files/home /storage/emulated/0"
-            local ignore="--exclude sh:**/0/Android/** \
+            local ignore="--exclude sh:**/*BORG_IGNORE*/** \
+                          --exclude sh:**/0/Android/** \
                           --exclude sh:**/.Ota/** \
                           --exclude sh:**/.thumbnails/** \
                           --exclude sh:**/.oprecyclebin/** \
@@ -159,10 +162,10 @@ function main {
             exit 1
             ;;
     esac
-    isDestinationUp                         || { message "Backup of ${dirs} on ${HOSTNAME} was unsuccessful! Could not connect to ${SERVER}.";  exit 1; }
+    isDestinationUp                         || { message "Backup of ${dirs} on ${HOSTNAME} was unsuccessful! Could not connect to ${SERVER}.";               exit 1; }
     beforeBackup
-    carryOutBackup "${dirs}" "${ignore}"    || { message "Backup of ${dirs} on ${HOSTNAME} was unsuccessful! Error during backup.";             exit 1; }
-    carryOutPrune                           || { message "Pruning of repository ${HOSTNAME} was unsuccessful.";                                 exit 1; }
+    carryOutBackup "${dirs}" "${ignore}"    || { message "Backup of ${dirs} on ${HOSTNAME} was unsuccessful! Error during backup.";             afterBackup; exit 1; }
+    carryOutPrune                           || { message "Pruning of repository ${HOSTNAME} was unsuccessful.";                                 afterBackup; exit 1; }
     afterBackup
 }
 
