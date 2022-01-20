@@ -5,6 +5,8 @@
 #   == setup, creates timer
 #   == anything else, runs backups check and upload to BackBlaze
 
+# NOTE TO FUTURE ME: since backup is done by root, everything needs to be mounted by root also, add 'user_allow_other' to /etc/fuse.conf
+
 BACKUPS_DIR="/mnt/hdd/borg"
 DEST_DIR="b2:borg-backup-272"
 DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)"
@@ -55,18 +57,18 @@ function checkLastBackups {
         LAST_MTIME=$(find "$d" -type f -exec stat \{} --printf="%y\n" \; | sort -n -r | head -n 1)
         DAYS_SINCE=$(( ($(date +%s -d 'now') - $(date +%s -d "$LAST_MTIME")) / 86400))
         if (( DAYS_SINCE > 7 )); then
-            message "$(basename $d) was not backed up in the last 7 days!";
+            message "$(basename $d) was not backed up in the last $DAYS_SINCE days!";
         fi
     done
 }
 
 function offsiteBackup {
-    rclone sync -v --fast-list --transfers 16 "$BACKUPS_DIR" "$DEST_DIR"
+    rclone sync -v --fast-list --transfers 16 --b2-hard-delete "$BACKUPS_DIR" "$DEST_DIR"
 }
 
 if [ "$1" = "setup" ]; then
     setUp
 else
-    checkLastBackups
-    offsiteBackup
+    checkLastBackups   || { message "Could not check last backups."; }
+    offsiteBackup      || { message "Offsite backup was unsuccessful!";  exit 1; }
 fi
