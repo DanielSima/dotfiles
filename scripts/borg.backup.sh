@@ -136,7 +136,7 @@ function isDestinationUp {
 function main {
     case $HOSTNAME in
         server)
-            local dirs="/home/daniel /etc /usr/local /root"
+            local dirs="/home/daniel /etc /usr/local /root /mnt/hdd/photos"
             local ignore="--exclude sh:**/*BORG_IGNORE*/** \
                           --exclude sh:**/*[Cc]ache*/** \
                           --exclude sh:**/transcode/**"
