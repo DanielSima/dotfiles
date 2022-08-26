@@ -29,11 +29,11 @@ sudo docker run -d --restart unless-stopped --name=tautulli -e TZ=Europe/Prague 
 -e PUID=1000 -e PGID=1000 -e UMASK_SET=022 -p 8181:8181 \
 ghcr.io/linuxserver/tautulli
 
-#jackett
-sudo docker run -d --restart unless-stopped --name=jackett -e TZ=Europe/Prague \
--v ${DIR}/jackett:/config -v ${MEDIA_DIR}/torrents:/downloads \
--e PUID=1000 -e PGID=1000  -p 9117:9117 \
-ghcr.io/linuxserver/jackett
+#prowlarr
+sudo docker run -d --restart unless-stopped --name=prowlarr -e TZ=Europe/Prague \
+-v ${DIR}/prowlarr:/config \
+-e PUID=1000 -e PGID=1000  -p 9696:9696 \
+ghcr.io/linuxserver/prowlarr:develop
 
 #sonarr
 sudo docker run -d --restart unless-stopped --name=sonarr -e TZ=Europe/Prague \
